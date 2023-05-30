@@ -2,7 +2,7 @@ import type { MailerOptions } from '@fixers/mail'
 import { createMailer } from '@fixers/mail'
 
 /**
- * Create a new {@link Mailer} instance.
+ * Define a mailer provider for the application.
  *
  * #### Example:
  *
