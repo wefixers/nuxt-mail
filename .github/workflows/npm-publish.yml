@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
 
       - uses: pnpm/action-setup@v2
@@ -25,6 +25,8 @@ jobs:
             - args: [--frozen-lockfile]
 
       - run: npm install -g npm
+      - run: pnpm run dev:prepare
+      - run: pnpm run prepack
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
